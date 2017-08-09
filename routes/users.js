@@ -4,10 +4,8 @@ var api = require('../controller');
 var mongoose = require('mongoose');
 mongoose.Promise = require('../node_modules/bluebird');
 /* Post users login. */
+
 router.post('/login', function(req, res, next) { //отправление данный с клиента на /login
- /*   if (!req.body.username || !req.body.password){
-        //return res.sendStatus(400); // пароль или логин не введен
-    } else {*/
 
         if(req.session.user) {
             console.log('da');
@@ -31,6 +29,7 @@ router.post('/login', function(req, res, next) { //отправление дан
               })
    /* }*/
 });
+
 router.post('/', function (req, res, next) { //Crud операции над юзером
     api.createUser(req.body) //создание нового пользователя (преедача тела запроса)
         .then(function (result) { //жждет результата создания
@@ -43,6 +42,7 @@ router.post('/', function (req, res, next) { //Crud операции над юз
             }
         })
 });
+
 router.post('/logout', function (req, res, nest) { //выход
     if(req.session.user){ //проверка на существование сессии
         console.log(req.session.id);
@@ -52,6 +52,7 @@ router.post('/logout', function (req, res, nest) { //выход
         res.sendStatus(400);
     }
 });
+
 router.get('/logout', function (req, res, nest) { //выход
     if(req.session.user){ //проверка на существование сессии
         console.log(req.session.id);

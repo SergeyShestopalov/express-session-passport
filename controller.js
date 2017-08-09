@@ -6,8 +6,6 @@ var crypto = require('crypto');
 mongoose.Promise = require('./node_modules/bluebird');
 var db = mongoose.connect("mongodb://localhost:27017/Users");
 var User = require('./db/models/user.js');
-//var Session = require('./db/models/session');
-
 
 exports.createUser = function (userData) {
     var user = {
@@ -37,11 +35,7 @@ exports.checkUser = function (userData) {
             return Promise.reject("Error wrong");
         })
 };
-/*exports.deleteSession = function (id) {
-    Session.findOne(id);
-        console.log();
 
-};*/
 function hash(text) {
     return crypto.createHash('sha1')
         .update(text).digest('base64')
