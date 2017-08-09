@@ -1,0 +1,18 @@
+body{
+    background-color: #909090;
+}
+.div-message{
+    background-color: white;
+    width: 30%;
+    height: auto;
+    margin: auto;
+    margin-top:5%;
+    padding: 1%;
+}
+#Login{
+    margin-top: -15px;
+}
+a{
+    font-size: 18px;
+    float: right;
+}
